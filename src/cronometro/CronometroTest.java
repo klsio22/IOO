@@ -8,7 +8,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class CronometroTest {
     private Cronometro cronometro;
 
-
     @BeforeEach
     public void antesDeAdcionarValor(){
         cronometro = new Cronometro();
@@ -23,20 +22,18 @@ class CronometroTest {
     public void incrementaValor() {
         cronometro.incrementa();
         assertEquals(1.0,cronometro.getValor());
-
     }
 
     @Test
     public void zerarValorDoCronometro() {
-        cronometro.incrementa();
-        cronometro.incrementa();
-        cronometro.incrementa();
+        for ( int i = 0 ; i <= 2 ; i++){
+            cronometro.incrementa();
+        }
+
         assertEquals(3,cronometro.getValor());
 
         cronometro.zerarValor();
         assertEquals(0,cronometro.getValor());
-
     }
-
 
 }
