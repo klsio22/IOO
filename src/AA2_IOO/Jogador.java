@@ -27,8 +27,7 @@ public class Jogador {
 
     public void setNome(String nome) {
         nome = nome.trim();
-
-        if (nome.equals(""))
+        if (nome.contains(" "))
             this.nome = nome;
 
     }
