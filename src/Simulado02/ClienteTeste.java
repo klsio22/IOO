@@ -1,7 +1,6 @@
 package Simulado02;
 
 import static org.junit.jupiter.api.Assertions.*;
-import Simulado02.Cliente;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
