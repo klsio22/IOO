@@ -18,6 +18,10 @@ public class Jogador {
         this.numeroDaRodada = numeroDaRodada;
     }
 
+    public void setEscore(int escore) {
+        this.escore = escore;
+    }
+
     public int getEscore() {
         return escore;
     }

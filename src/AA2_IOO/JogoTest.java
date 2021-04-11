@@ -69,7 +69,7 @@ class JogoTest {
 
     @Test
     public void naoDeveAtribuirPontosCasoSejaFornecidoNumerosForaDoIntervalo() {
-        jogo.rodada(45, 33, 65);
+        jogo.rodada(45, 33, 51);
         jogo.rodada(5, 22, 41);
         jogo.rodada(-1, 40, 42);
 
@@ -88,10 +88,30 @@ class JogoTest {
         // este não deve ter retorno nem parâmetros. Deve zerar a pontuação
         // de cada jogador e manter a ordem inicial da classificação.
 
-        fail("Implemente o teste e a solução!");
+        jogo.rodada(39, 33, 32);
+        jogo.rodada(5, 22, 50);
+        jogo.rodada(11, 6, 42);
+
+        assertEquals(2, jogo.getpontuacao3());
+        assertEquals(20, jogo.getpontuacao2());
+        assertEquals(11, jogo.getpontuacao1());
+
+        assertEquals("Jogador 2", jogo.getPrimeiroColocado());
+        assertEquals("Jogador 1", jogo.getSegundoColocado());
+        assertEquals("Jogador 3", jogo.getTerceiroColocado());
+
+        jogo.reiniciar();
+
+        assertEquals(0, jogo.getpontuacao3());
+        assertEquals(0, jogo.getpontuacao2());
+        assertEquals(0, jogo.getpontuacao1());
+
+        assertEquals("Jogador 1", jogo.getPrimeiroColocado());
+        assertEquals("Jogador 2", jogo.getSegundoColocado());
+        assertEquals("Jogador 3", jogo.getTerceiroColocado());
+
     }
 
-    @Test
     public void deveRetornarAClassifcaoComAPontucaoDeCadaJogador() {
         // Escreve um método, na classe Jogo, chamado getClassificacao,
         // este não deve ter parâmetros e deve retornar a classificação no
@@ -102,7 +122,6 @@ class JogoTest {
 
         fail("Implemente o teste e a solução!");
     }
-
 
 
 }

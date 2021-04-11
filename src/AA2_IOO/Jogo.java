@@ -135,6 +135,12 @@ public class Jogo {
         return jogador3.getNome();
     }
 
+    public void reiniciar(){
+        jogador1.setEscore(0);
+        jogador2.setEscore(0);
+        jogador3.setEscore(0);
+    }
+
     public int getpontuacao1() {
         return jogador1.getEscore();
     }
