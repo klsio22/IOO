@@ -8,9 +8,11 @@ public class Jogador {
         setNome(nome);
     }
 
-    public void incrementarEscore(int score) {
-        if (score > 0)
-            this.escore += score;
+    public void incrementarEscore(int escore) {
+        if (escore > 0 && escore < 51)
+           this.escore += escore;
+
+
     }
 
     public void setNumeroDaRodada(int numeroDaRodada) {

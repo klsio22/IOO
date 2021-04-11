@@ -1,8 +1,6 @@
 package AA2_IOO;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -48,9 +46,13 @@ class JogadorTest {
     @Test
     public void naoDeveAlterarONomeCasoOArgumentoSejaVazio() {
         jogador.setNome("");
-
         assertEquals("Jogador 1", jogador.getNome());
     }
 
+    @Test
+    public void naoDeveAceitarValoresAcimade50() {
+        jogador.incrementarEscore(51);
+        assertEquals(0, jogador.getEscore());
+    }
 
 }
