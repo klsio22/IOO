@@ -46,10 +46,22 @@ public class Jogo {
     }
 
     public String getPrimeiroColocado() {
-        if (jogador1.getEscore() == 0)
+        if (jogador1.getEscore() > jogador2.getEscore()
+                && jogador2.getEscore() > jogador3.getEscore())
             return jogador1.getNome();
-        else
-          return getpontuacaoGeral();
+
+        if (jogador2.getEscore() > jogador1.getEscore()
+                && jogador1.getEscore() > jogador3.getEscore())
+            return jogador2.getNome();
+
+        if (jogador3.getEscore() > jogador2.getEscore()
+                && jogador2.getEscore() > jogador1.getEscore())
+            return jogador3.getNome();
+
+        if (jogador3.getEscore() > jogador1.getEscore()
+                && jogador1.getEscore() > jogador2.getEscore())
+            return jogador3.getNome();
+        return jogador1.getNome();
     }
 
     public String getSegundoColocado() {
@@ -89,25 +101,6 @@ public class Jogo {
                 && jogador1.getEscore() > jogador2.getEscore())
             return jogador2.getNome();
         return jogador3.getNome();
-    }
-
-    private String getpontuacaoGeral() {
-        if (jogador1.getEscore() > jogador2.getEscore()
-                && jogador2.getEscore() > jogador3.getEscore())
-            return jogador1.getNome();
-
-        if (jogador2.getEscore() > jogador1.getEscore()
-                && jogador1.getEscore() > jogador3.getEscore())
-            return jogador2.getNome();
-
-        if (jogador3.getEscore() > jogador2.getEscore()
-                && jogador2.getEscore() > jogador1.getEscore())
-            return jogador3.getNome();
-
-        if (jogador3.getEscore() > jogador1.getEscore()
-                && jogador1.getEscore() > jogador2.getEscore())
-            return jogador3.getNome();
-        return "";
     }
 
     public int getpontuacao1() {
