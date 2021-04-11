@@ -9,9 +9,8 @@ public class Jogador {
     }
 
     public void incrementarEscore(int escore) {
-        if (escore > 0 && escore < 51)
+        if (escore > 0)
            this.escore += escore;
-
 
     }
 
