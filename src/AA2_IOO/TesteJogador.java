@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class JogadorTest {
+class TesteJogador {
 
     private Jogador jogador;
 
@@ -47,12 +47,6 @@ class JogadorTest {
     public void naoDeveAlterarONomeCasoOArgumentoSejaVazio() {
         jogador.setNome("");
         assertEquals("Jogador 1", jogador.getNome());
-    }
-
-    @Test
-    public void naoDeveAceitarValoresAcimade50() {
-        jogador.incrementarEscore(51);
-        assertEquals(0, jogador.getEscore());
     }
 
 }

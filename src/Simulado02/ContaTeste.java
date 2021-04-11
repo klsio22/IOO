@@ -97,8 +97,8 @@ public class ContaTeste {
 		assertEquals(-500, conta.getSaldo(), DELTA);
 		assertEquals(0, conta.getSaldoComLimite(), DELTA);
 	}
-	
-	@Test
+
+
 	public void deveRetornarOExtratoDaContaBancaria() {
 		assertEquals(getPradaoDoExtrato(), conta.getExtrato());
 		
@@ -108,7 +108,7 @@ public class ContaTeste {
 		conta.sacar(1000);
 		assertEquals(getPradaoDoExtrato(), conta.getExtrato());
 	}
-	
+
 	private String getPradaoDoExtrato() {
 		String extrato = "";
 		extrato += "-----------------------------\n";

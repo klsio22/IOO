@@ -54,7 +54,7 @@ public class Jogo {
                 jogador3.incrementarEscore(10);
             }
 
-            if(numero3 > numero2 && numero2 > numero1){
+            if (numero3 > numero2 && numero2 > numero1) {
                 jogador1.incrementarEscore(0);
                 jogador2.incrementarEscore(10);
                 jogador3.incrementarEscore(1);
@@ -135,7 +135,7 @@ public class Jogo {
         return jogador3.getNome();
     }
 
-    public void reiniciar(){
+    public void reiniciar() {
         jogador1.setEscore(0);
         jogador2.setEscore(0);
         jogador3.setEscore(0);
@@ -151,5 +151,15 @@ public class Jogo {
 
     public int getpontuacao3() {
         return jogador3.getEscore();
+    }
+
+    public String getClassificacao() {
+
+        String classificacao = "";
+        classificacao += "jogador 1 - " + getpontuacao1() + " pontos\n";
+        classificacao += "jogador 2 - " + getpontuacao2() + " pontos\n";
+        classificacao += "jogador 3 - " + getpontuacao3() + " pontos\n";
+
+        return classificacao;
     }
 }
