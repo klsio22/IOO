@@ -1,5 +1,6 @@
 package AA2_IOO;
 
+//Klesio Antonio do Nascimento
 public class Jogador {
     private String nome;
     private int escore, numeroDaRodada;
@@ -8,9 +9,9 @@ public class Jogador {
         setNome(nome);
     }
 
-    public void incrementarEscore(int escore) {
-        if (escore > 0)
-           this.escore += escore;
+    public void incrementarEscore(int valor) {
+        if (valor > 0)
+            escore += valor;
     }
 
     public void setNumeroDaRodada(int numeroDaRodada) {

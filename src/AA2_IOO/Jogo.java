@@ -1,8 +1,8 @@
 package AA2_IOO;
-
+//Klesio Antonio do Nascimento
 public class Jogo {
     private Jogador jogador1, jogador2, jogador3;
-    private int numero1 = 0, numero2 = 0, numero3 = 0;
+    private int numero1, numero2, numero3;
 
     public Jogo() {
         jogador1 = new Jogador("Jogador 1");
@@ -25,39 +25,26 @@ public class Jogo {
 
             if (numero3 > numero1 && numero1 > numero2) {
                 jogador1.incrementarEscore(10);
-                jogador2.incrementarEscore(0);
-                jogador3.incrementarEscore(1);
             }
 
-
             if (numero1 > numero2 && numero2 > numero3) {
-                jogador1.incrementarEscore(1);
                 jogador2.incrementarEscore(10);
-                jogador3.incrementarEscore(0);
             }
 
             if (numero2 > numero1 && numero1 > numero3) {
                 jogador1.incrementarEscore(10);
-                jogador2.incrementarEscore(1);
-                jogador3.incrementarEscore(0);
             }
 
             if (numero1 > numero3 && numero3 > numero2) {
-                jogador1.incrementarEscore(1);
-                jogador2.incrementarEscore(0);
                 jogador3.incrementarEscore(10);
             }
 
             if (numero2 > numero3 && numero3 > numero1) {
-                jogador1.incrementarEscore(0);
-                jogador2.incrementarEscore(1);
                 jogador3.incrementarEscore(10);
             }
 
             if (numero3 > numero2 && numero2 > numero1) {
-                jogador1.incrementarEscore(0);
                 jogador2.incrementarEscore(10);
-                jogador3.incrementarEscore(1);
             }
 
         }
