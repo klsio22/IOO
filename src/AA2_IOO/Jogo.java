@@ -79,6 +79,10 @@ public class Jogo {
                 && jogador2.getEscore() > jogador3.getEscore())
             return jogador2.getNome();
 
+        if (jogador1.getEscore() > jogador3.getEscore()
+                && jogador3.getEscore() > jogador2.getEscore())
+            return jogador3.getNome();
+
         if (jogador2.getEscore() > jogador1.getEscore()
                 && jogador1.getEscore() > jogador3.getEscore())
             return jogador1.getNome();
@@ -103,6 +107,10 @@ public class Jogo {
                 && jogador2.getEscore() > jogador3.getEscore())
             return jogador3.getNome();
 
+        if (jogador1.getEscore() > jogador3.getEscore()
+                && jogador3.getEscore() > jogador2.getEscore())
+            return jogador2.getNome();
+
         if (jogador2.getEscore() > jogador1.getEscore()
                 && jogador1.getEscore() > jogador3.getEscore())
             return jogador3.getNome();
@@ -120,6 +128,34 @@ public class Jogo {
             return jogador1.getNome();
 
         return jogador3.getNome();
+    }
+
+
+    private  String getOrdemClassificacao(){
+        if (jogador1.getEscore() > jogador2.getEscore()
+                && jogador2.getEscore() > jogador3.getEscore())
+            return jogador2.getNome();
+
+        if (jogador1.getEscore() > jogador3.getEscore()
+                && jogador3.getEscore() > jogador2.getEscore())
+            return jogador3.getNome();
+
+        if (jogador2.getEscore() > jogador1.getEscore()
+                && jogador1.getEscore() > jogador3.getEscore())
+            return jogador1.getNome();
+
+        if (jogador3.getEscore() > jogador2.getEscore()
+                && jogador2.getEscore() > jogador1.getEscore())
+            return jogador2.getNome();
+
+        if (jogador3.getEscore() > jogador1.getEscore()
+                && jogador1.getEscore() > jogador2.getEscore())
+            return jogador1.getNome();
+
+        if (jogador2.getEscore() > jogador3.getEscore()
+                && jogador3.getEscore() > jogador1.getEscore())
+            return jogador3.getNome();
+
     }
 
     public void reiniciar() {

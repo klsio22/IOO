@@ -1,6 +1,8 @@
 package AA2_IOO;
 //Klesio Antonio do Nascimento
+
 import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -22,7 +24,7 @@ class TesteJogo {
 
     @Test
     public void deveDeterminarAColocacaoComUmaRodada() {
-        jogo.rodada(5, 10, 2);//
+        jogo.rodada(5, 10, 2);
 
         assertEquals("Jogador 1", jogo.getPrimeiroColocado());
         assertEquals("Jogador 2", jogo.getSegundoColocado());
@@ -69,7 +71,7 @@ class TesteJogo {
         jogo.rodada(45, 33, 51);//2 = 10
         jogo.rodada(5, 22, 41); //2 = 10
         jogo.rodada(-1, 40, 42);//2 = 10
-        jogo.rodada(20,10,35);//1 = 10
+        jogo.rodada(20, 10, 35);//1 = 10
 
 
         assertEquals(0, jogo.getpontuacao3());
@@ -110,6 +112,7 @@ class TesteJogo {
         assertEquals("Jogador 3", jogo.getTerceiroColocado());
 
     }
+
     @Test
     public void deveRetornarAClassifcaoComAPontucaoDeCadaJogador() {
         // Escreve um método, na classe Jogo, chamado getClassificacao,
@@ -149,6 +152,107 @@ class TesteJogo {
         classificacao += "jogador 3 - " + jogo.getpontuacao3() + " pontos\n";
 
         return classificacao;
+    }
+
+
+    @Test
+    public void deveRetornarTodasAsPosibilidadesDeClassificacao() {
+        // 3 2 1 - 1 2 3 - 2 3 1 - 3 1 2 - 1 3 2 - 2 1 3
+
+        //3 2 1
+        jogo.rodada(29, 38, 34);//3=10
+        jogo.rodada(5, 42, 40);//3=10
+        jogo.rodada(4, 8, 26);//2=10
+
+        assertEquals(20, jogo.getpontuacao3());
+        assertEquals(10, jogo.getpontuacao2());
+        assertEquals(0, jogo.getpontuacao1());
+
+        assertEquals("Jogador 3", jogo.getPrimeiroColocado());
+        assertEquals("Jogador 2", jogo.getSegundoColocado());
+        assertEquals("Jogador 1", jogo.getTerceiroColocado());
+
+
+        jogo.reiniciar();
+        /// 1 2 3
+        jogo.rodada(5, 10, 2);//1 = 10
+        jogo.rodada(15, 30, 12);//1 = 10
+        jogo.rodada(19, 21, 15);//1 = 10
+        jogo.rodada(9, 8, 7);//2 = 10
+
+        assertEquals(30, jogo.getpontuacao1());
+        assertEquals(10, jogo.getpontuacao2());
+        assertEquals(0, jogo.getpontuacao3());
+
+        assertEquals("Jogador 1", jogo.getPrimeiroColocado());
+        assertEquals("Jogador 2", jogo.getSegundoColocado());
+        assertEquals("Jogador 3", jogo.getTerceiroColocado());
+
+        jogo.reiniciar();
+        //2 3 1
+        jogo.rodada(10, 20, 22);//2=10
+        jogo.rodada(23, 22, 21);//2=10
+        jogo.rodada(9, 16, 26);//2=10
+        jogo.rodada(10, 18, 34);//2=10
+        jogo.rodada(33, 4, 21);//3=10
+
+        assertEquals(40, jogo.getpontuacao2());
+        assertEquals(10, jogo.getpontuacao3());
+        assertEquals(0, jogo.getpontuacao1());
+
+        assertEquals("Jogador 2", jogo.getPrimeiroColocado());
+        assertEquals("Jogador 3", jogo.getSegundoColocado());
+        assertEquals("Jogador 1", jogo.getTerceiroColocado());
+
+        jogo.reiniciar();
+        //3 1 2
+        jogo.rodada(25, 10, 20);//3=10
+        jogo.rodada(23, 2, 21);//3=10
+        jogo.rodada(9, 6, 26);//1=10
+        jogo.rodada(10, 8, 34);//1=10
+        jogo.rodada(33, 4, 21);//3=10
+
+        assertEquals(30, jogo.getpontuacao3());
+        assertEquals(20, jogo.getpontuacao1());
+        assertEquals(0, jogo.getpontuacao2());
+
+        assertEquals("Jogador 3", jogo.getPrimeiroColocado());
+        assertEquals("Jogador 1", jogo.getSegundoColocado());
+        assertEquals("Jogador 2", jogo.getTerceiroColocado());
+
+
+        jogo.reiniciar();
+        //1 3 2
+        jogo.rodada(25, 10, 34);//1=10
+        jogo.rodada(23, 22, 50);//1=10
+        jogo.rodada(4, 26, 8);//3=10
+
+        assertEquals(20, jogo.getpontuacao1());
+        assertEquals(10, jogo.getpontuacao3());
+        assertEquals(0, jogo.getpontuacao2());
+
+        assertEquals("Jogador 1", jogo.getPrimeiroColocado());
+        assertEquals("Jogador 3", jogo.getSegundoColocado());
+        assertEquals("Jogador 2", jogo.getTerceiroColocado());
+
+        jogo.reiniciar();
+
+        //2 1 3
+        jogo.rodada(35, 24, 20);//2=10
+        jogo.rodada(23, 22, 21);//2=10
+        jogo.rodada(8, 6, 26);//1=10
+        jogo.rodada(15, 8, 34);//1=10
+        jogo.rodada(33, 26, 21);//2=10
+        jogo.rodada(33, 4, 21);//3=10
+
+        assertEquals(30, jogo.getpontuacao2());
+        assertEquals(20, jogo.getpontuacao1());
+        assertEquals(10, jogo.getpontuacao3());
+
+        assertEquals("Jogador 2", jogo.getPrimeiroColocado());
+        assertEquals("Jogador 1", jogo.getSegundoColocado());
+        assertEquals("Jogador 3", jogo.getTerceiroColocado());
+
     }
 
 }
