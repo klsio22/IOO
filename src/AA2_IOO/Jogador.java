@@ -1,6 +1,6 @@
 package AA2_IOO;
-
 //Klesio Antonio do Nascimento
+
 public class Jogador {
     private String nome;
     private int escore, numeroDaRodada;

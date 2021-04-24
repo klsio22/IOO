@@ -2,7 +2,6 @@ package pessoa;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class PessoaTest {
@@ -11,23 +10,30 @@ class PessoaTest {
 
     @BeforeEach
     public void executadoAntesDeCadaTeste() {
+        p = new Pessoa("Klesio","Nascimento");
+       // p.setNome("Rafael");
+       // p.setSobrenome("Almeida");
+    }
+
+    @Test
+    public void deveTerOEstadoInicialVazil() {
         p = new Pessoa();
-        p.setNome("Rafael");
-        p.setSobrenome("Almeida");
+        assertEquals("",p.getNome());
+        assertEquals("",p.getSobrenome());
     }
 
     @Test
     public void deveAlterarOAtributoNome() {
-        assertEquals("Rafael", p.getNome());
+        assertEquals("Klesio", p.getNome());
     }
 
     @Test
     public void deveAlterarOAtributoSobrenome() {
-        assertEquals("Almeida", p.getSobrenome());
+        assertEquals("Nascimento", p.getSobrenome());
     }
 
     @Test
     public void deveRetornarONomeCompleto() {
-        assertEquals("Rafael Almeida", p.getNomeCompleto());
+        assertEquals("Klesio Nascimento", p.getNomeCompleto());
     }
 }
