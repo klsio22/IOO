@@ -2,43 +2,62 @@ package ExLista_IOO_02.DadosPessoais;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import java.util.Calendar;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class PessoaTest {
 
-    private Pessoa01 p1;
+    private Pessoa p;
 
     @BeforeEach
-    public void executadoAntesDeCadaTeste() {
-        p1 = new Pessoa01();
-        p1.setNome("Rafael");
-        p1.setSobreNome("Almeida Sousa");
-        p1.setAnoNascimento(1997);
+    public void antesDeCadaTeste() {
+        p = new Pessoa();
     }
-    
+
     @Test
     public void deveAlterarOAtributoNome() {
-        assertEquals("Rafael", p1.getNome());
+        p.setNome("Paulo");
+        assertEquals("Paulo", p.getNome());
     }
 
     @Test
     public void deveAlterarOAtributoSobrenome() {
-        assertEquals("Almeida Sousa", p1.getSobreNome());
+        p.setSobrenome("Silva");
+        assertEquals("Silva", p.getSobrenome());
+    }
+
+    @Test
+    public void deveAlterarOAtributoAnoDeNascimento() {
+        p.setAnoDeNascimento(2000);
+        assertEquals(2000, p.getAnoDeNascimento());
     }
 
     @Test
     public void deveRetornarONomeCompleto() {
-        assertEquals("Rafael Almeida Sousa", p1.getNomeCompleto());
+        p.setNome("Paulo");
+        p.setSobrenome("Silva");
+
+        assertEquals("Paulo Silva", p.getNomeCompleto());
     }
 
     @Test
-    public void deveRetornarIdade(){
-        assertEquals(24, p1.getIdade());
+    public void deveRetornarAIdade() {
+        p.setAnoDeNascimento(2000);
+        int idade = getAnoAtual() - 2000;
+
+        assertEquals(idade, p.getIdade());
     }
 
     @Test
-    public  void IdadeEmMeses(){
-        assertEquals(288,p1.getIdadeEmMeses());
+    public void deveRetornarAIdadeEmMeses() {
+        p.setAnoDeNascimento(2000);
+        int idadeEmMeses = (getAnoAtual() - 2000) * 12;
+        assertEquals(idadeEmMeses, p.getIdadeEmMeses());
     }
 
+    private int getAnoAtual() {
+        Calendar cal = Calendar.getInstance();
+        return cal.get(Calendar.YEAR);
+    }
 }
