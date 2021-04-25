@@ -1,4 +1,4 @@
-package DadosPessoais;
+package ExLista_IOO_02.DadosPessoais;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

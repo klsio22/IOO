@@ -1,4 +1,4 @@
-package DadosPessoais;
+package ExLista_IOO_02.DadosPessoais;
 import java.util.Calendar;
 
 public class Pessoa01{

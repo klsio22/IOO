@@ -1,4 +1,4 @@
-package Lampada;
+package ExLista_IOO_02.Lampada;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

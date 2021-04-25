@@ -1,4 +1,4 @@
-package cronometro;
+package ExLista_IOO_02.cronometro;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;

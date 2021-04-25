@@ -1,4 +1,4 @@
-package Temperatura;
+package ExLista_IOO_02.Temperatura;
 
 public class Temperatura {
     private double celsius , fahrenheit , kelvin;

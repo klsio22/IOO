@@ -1,13 +1,13 @@
-package cronometro;
+package ExLista_IOO_02.cronometro;
 
 public class Cronometro {
-    private double valor ;
+    private double valor;
 
     public void incrementa() {
-      valor = valor + 1 ;
+        valor += 1;
     }
 
-    public void zerarValor(){
+    public void zerarValor() {
         this.valor = 0.0;
     }
 
