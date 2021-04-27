@@ -6,6 +6,7 @@ public class Calculadora {
     private String ultimaOperacao;
 
     public Calculadora() {
+        ultimaOperacao="";
         Locale.setDefault(Locale.US);
     }
 
