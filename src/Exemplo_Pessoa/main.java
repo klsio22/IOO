@@ -1,4 +1,4 @@
-package pessoa;
+package Exemplo_Pessoa;
 
 public class main {
     public static void main(String[] args) {

@@ -1,6 +1,4 @@
-package pessoa;
-
-import org.junit.jupiter.api.Test;
+package Exemplo_Pessoa;
 
 public class Pessoa {
     private String nome;

@@ -2,15 +2,12 @@ package ExLista_IOO_02.DadosPessoais;
 import java.util.Calendar;
 
 public class Pessoa {
-
-
-
-    private String nome , sobrenome;
+    private String nome, sobrenome;
     private int anoDeNascimento;
 
-    public Pessoa(){
-        nome="";
-        sobrenome ="";
+    public Pessoa() {
+        nome = "";
+        sobrenome = "";
         anoDeNascimento = 0;
     }
 
@@ -31,7 +28,7 @@ public class Pessoa {
     }
 
     public String getNomeCompleto() {
-        return nome + " "+ sobrenome;
+        return nome + " " + sobrenome;
     }
 
     public void setAnoDeNascimento(int anoDeNascimento) {
@@ -49,7 +46,7 @@ public class Pessoa {
     }
 
     public int getIdadeEmMeses() {
-        return getIdade() * 12 ;
+        return getIdade() * 12;
     }
 
     private int getAnoAtual() {

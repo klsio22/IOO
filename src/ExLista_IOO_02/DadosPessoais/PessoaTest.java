@@ -2,9 +2,10 @@ package ExLista_IOO_02.DadosPessoais;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import java.util.Calendar;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.Calendar;
 
 class PessoaTest {
 
