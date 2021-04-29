@@ -61,5 +61,4 @@ public class Produto {
     public double getTotalDeJurosPago() {
         return getPrecoTotalComJuros() - preco;
     }
-
 }
