@@ -60,17 +60,15 @@ public class TesteRetangulo {
 
     @Test
     public void deveVerificarSeEUmQuadrado() {
-     //   assertFalse("Nao e quadrado", r.eQuadrado());
+        assertFalse(r.eQuadrado(), "Nao e quadrado");
         r.setBase(20);
-      //  assertTrue("E quadrado", r.eQuadrado());
+        assertTrue(r.eQuadrado(), "E quadrado");
     }
-
-
 
     @Test
     public void deveVerificarSeTemAreaMaiorQueUmValorInformado() {
-        //assertFalse("Nao tem area maior que 200", r.temAreaMaiorQue(210));
-        // assertTrue("Tem area maior que 20", r.temAreaMaiorQue(20));
+        assertFalse(r.temAreaMaiorQue(210), "Nao tem area maior que 200");
+        assertTrue(r.temAreaMaiorQue(20), "Tem area maior que 20");
     }
 
     @Test
@@ -78,7 +76,7 @@ public class TesteRetangulo {
         Retangulo r2 = new Retangulo(30, 30);
         Retangulo r3 = new Retangulo(10);
 
-        //   assertFalse("Nao tem area maior que 900", r.temAreaMaiorQue(r2));
-        //   assertTrue("Tem area maior que 100", r.temAreaMaiorQue(r3));
+        assertFalse(r.temAreaMaiorQue(r2), "Nao tem area maior que 900");
+        assertTrue(r.temAreaMaiorQue(r3), "Tem area maior que 100");
     }
 }

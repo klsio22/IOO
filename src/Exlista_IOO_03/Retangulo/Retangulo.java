@@ -1,23 +1,23 @@
 package Exlista_IOO_03.Retangulo;
 
 public class Retangulo {
-    private int base, altura;
+    private double base, altura;
 
     public Retangulo() {
-        this(1,1);
+        this(1, 1);
     }
 
-    public Retangulo(int igual) {
+    public Retangulo(double igual) {
         this.altura = igual;
         this.base = igual;
     }
 
-    public Retangulo(int base, int altura) {
+    public Retangulo(double base, double altura) {
         setBase(base);
         setAltura(altura);
     }
 
-    public void setAltura(int altura) {
+    public void setAltura(double altura) {
         this.altura = altura;
     }
 
@@ -25,7 +25,7 @@ public class Retangulo {
         return altura;
     }
 
-    public void setBase(int base) {
+    public void setBase(double base) {
         this.base = base;
     }
 
@@ -42,11 +42,15 @@ public class Retangulo {
     }
 
     public boolean eQuadrado() {
-        return true;
+        return base == altura;
     }
 
-    public String temAreaMaiorQue(int maior) {
-        return "Nao tem area maior que 200";
+    public boolean temAreaMaiorQue(double area) {
+        return getArea() > area;
+    }
+
+    public boolean temAreaMaiorQue(Retangulo r) {
+        return getArea() > r.getArea();
     }
 
 }
