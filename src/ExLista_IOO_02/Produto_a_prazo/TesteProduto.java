@@ -1,4 +1,4 @@
-package ExLista_IOO_02.Produto_a_Prazo;
+package ExLista_IOO_02.Produto_a_prazo;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;

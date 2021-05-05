@@ -1,4 +1,4 @@
-package ExLista_IOO_02.Produto_a_Prazo;
+package ExLista_IOO_02.Produto_a_prazo;
 
 public class Produto {
     private double preco;

@@ -1,4 +1,4 @@
-package ExLista_IOO_02.DadosPessoais;
+package ExLista_IOO_02.Dados_pessoais;
 import java.util.Calendar;
 
 public class Pessoa {
@@ -8,7 +8,6 @@ public class Pessoa {
     public Pessoa() {
         nome = "";
         sobrenome = "";
-        anoDeNascimento = 0;
     }
 
     public void setNome(String nome) {
@@ -41,8 +40,7 @@ public class Pessoa {
 
     public int getIdade() {
         //int dataAtual = Calendar.getInstance().get(Calendar.YEAR);
-        int idade;
-        return idade = getAnoAtual() - getAnoDeNascimento();
+        return  getAnoAtual() - getAnoDeNascimento();
     }
 
     public int getIdadeEmMeses() {

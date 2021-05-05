@@ -33,13 +33,13 @@ public class Aluno {
     public boolean eValida() {
         erros.clear();
 
-        if (nome.isEmpty()) {
+        if (nome.isEmpty())
             erros.add("Nome não pode ser vazio.");
-            erros.add("Deve ser informado o nome e sobrenome.");
-            return erros.isEmpty();
-        }
 
-        return !nome.equals(" ");
+        if(!nome.contains(" "))
+            erros.add("Deve ser informado o nome e sobrenome.");
+
+        return erros.isEmpty();
 
     }
 
