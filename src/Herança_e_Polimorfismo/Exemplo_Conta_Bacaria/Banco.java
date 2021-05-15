@@ -28,7 +28,7 @@ public class Banco {
             if (conta instanceof ContaCorrente) {
                 ContaCorrente cc = (ContaCorrente) conta;
                 cc.cobrarTaxaAdministrativa();
-            }else {
+            } else {
                 ContaPoupanca cp = (ContaPoupanca) conta;
                 cp.pagarJuros();
             }
@@ -36,14 +36,29 @@ public class Banco {
 
     }
 
-    public List<ContaCorrente> getContasCorrente() {
+    public List<Conta> getContas() {
+        return Collections.unmodifiableList(contas);
+    }
+
+    /*public List<ContaCorrente> getContasCorrente() {
         return Collections.unmodifiableList(contasCorrente);
     }
 
     public List<ContaPoupanca> getContasPoupanca() {
         return Collections.unmodifiableList(contasPoupanca);
+    }*/
+
+    public Conta getConta(int numero) {
+        for (Conta conta : contas) {
+            if (conta.getNumero() == numero)
+                return conta;
+        }
+        return null;
     }
 
+
+
+/*
     public ContaCorrente getContaCorrente(int numero) {
         for (ContaCorrente contaCorrente : contasCorrente) {
             if (contaCorrente.getNumero() == numero)
@@ -52,11 +67,12 @@ public class Banco {
         return null;
     }
 
+
     public ContaPoupanca getContaPoupanca(int numero) {
         for (ContaPoupanca contaPoupanca : contasPoupanca) {
             if (contaPoupanca.getNumero() == numero)
                 return contaPoupanca;
         }
         return null;
-    }
+    }*/
 }
