@@ -1,33 +1,24 @@
 package AA4_IOO.sistema_do_pedagio;
+//Klésio Antônio do Nascimento
 
-public class Caminhao {
+public class Caminhao extends Veiculos {
 
-	private int numeroDeEixos;
-	private String placa;
-	private double tarifaPorEixo = 19.50;
-	
-	public Caminhao(String placa, int numeroDeEixos) {
-		this.placa = placa;
-		this.numeroDeEixos = numeroDeEixos;
-	}
+    private double tarifaPorEixo = 19.50;
 
-	public String getPlaca() {
-		return placa;
-	}
-	
-	public int getNumeroDeEixos() {
-		return numeroDeEixos;
-	}
-	
-	public double getTarifa() {
-		return numeroDeEixos * tarifaPorEixo;
-	}
-	
-	public String getTipo() {
-		return "Caminhão";
-	}
+    public Caminhao(String placa, int numeroDeEixos) {
+        super(placa, numeroDeEixos);
+    }
 
-	public String getTipoDeTarifa() {
-		return "Por eixo";
-	}
+    public double getTarifa() {
+        return getNumeroDeEixos() * tarifaPorEixo;
+    }
+
+    public String getTipoDeTarifa() {
+        return "Por eixo";
+    }
+
+    public String getTipo() {
+        return "Caminhão";
+    }
+
 }

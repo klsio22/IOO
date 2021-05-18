@@ -25,13 +25,7 @@ public class Banco {
 
     public void processarContas() {
         for (Conta conta : contas) {
-            if (conta instanceof ContaCorrente) {
-                ContaCorrente cc = (ContaCorrente) conta;
-                cc.cobrarTaxaAdministrativa();
-            } else {
-                ContaPoupanca cp = (ContaPoupanca) conta;
-                cp.pagarJuros();
-            }
+            conta.processar();
         }
 
     }

@@ -8,7 +8,13 @@ public class ContaPoupanca extends Conta {
         super(cliente, numero);
     }
 
-    public void pagarJuros() {
+    @Override
+    public void processar() {
         depositar(getSaldo() * juros);
+    }
+
+    @Override
+    public String getTipo() {
+        return "cp";
     }
 }

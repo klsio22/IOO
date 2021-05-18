@@ -1,6 +1,6 @@
 package Herança_e_Polimorfismo.Exemplo_Conta_Bacaria;
 
-public class Conta {
+public abstract class Conta {
     private Cliente cliente;
     private int numero;
     private double saldo;
@@ -30,4 +30,10 @@ public class Conta {
     public double getSaldo() {
         return saldo;
     }
+
+
+    public abstract void processar();
+
+    public abstract String getTipo();
+
 }

@@ -50,8 +50,7 @@ public class InterfaceTexto {
         sln("########################################");
         sln("# 1 - Adicionar Conta Corrente         #");
         sln("# 2 - Adicionar Conta Poupança         #");
-        sln("# 3 - Listar Contas Corrente           #");
-        sln("# 4 - Listar Contas Poupança           #");
+        sln("# 3 - Mostar Contas                    #");
         sln("# 5 - Processar contas                 #");
         sln("# 6 - Acessar conta                    #");
         sln("#                                      #");
@@ -72,15 +71,11 @@ public class InterfaceTexto {
                 break;
             case "3":
                 mostrarContas();
-                   // mostrarContasCorrente();
                 break;
             case "4":
-                //   mostrarContasPoupanca();
-                break;
-            case "5":
                 processarContas();
                 break;
-            case "6":
+            case "5":
                 acessarConta();
                 break;
             case SAIR:
@@ -114,36 +109,17 @@ public class InterfaceTexto {
         imprimirCabecalhoDaListagemDeContas("Contas Poupanças");
 
         for (Conta c : banco.getContas()) {
-            sf("| %-6d | %-5s | %-21s |\n", c.getNumero(), c.getSaldo(), c.getCliente().getNome());
+            sf("| %-6d | %-4s |%-5s | %-21s |\n", c.getNumero(), c.getTipo(),
+                    c.getSaldo(), c.getCliente().getNome());
             sln("-----------------------------------------");
         }
     }
-
-
-	/*
-	private void mostrarContasCorrente() {
-		imprimirCabecalhoDaListagemDeContas("Contas Corrente");
-
-		for (ContaCorrente cc : banco.getContasCorrente()) {
-			sf("| %-6d | %-5s | %-21s |\n", cc.getNumero(), cc.getSaldo(), cc.getCliente().getNome());
-			sln("-----------------------------------------");
-		}
-	}
-
-	private void mostrarContasPoupanca() {
-		imprimirCabecalhoDaListagemDeContas("Contas Poupanças");
-
-		for (ContaPoupanca cp : banco.getContasPoupanca()) {
-			sf("| %-6d | %-5s | %-21s |\n", cp.getNumero(), cp.getSaldo(), cp.getCliente().getNome());
-			sln("-----------------------------------------");
-		}
-	}*/
 
     private void imprimirCabecalhoDaListagemDeContas(String titulo) {
         sln("------------------------------------------");
         sln("| " + centralizarTitulo(titulo) + " |");
         sln("------------------------------------------");
-        sln("| numero | saldo | cliente               |");
+        sln("| numero | tipo | saldo | cliente        |");
         sln("------------------------------------------");
     }
 
@@ -271,7 +247,7 @@ public class InterfaceTexto {
     private void limpar() {
         s("\033[H\033[2J");
         System.out.flush();  // Limpa terminal do Linux
-        s("\f");                                 // Limpa terminal do Bluej
+        s("\f");          // Limpa terminal do Bluej
     }
 
     private void sln() {

@@ -8,7 +8,13 @@ public class ContaCorrente extends Conta {
         super(cliente, numero);
     }
 
-    public void cobrarTaxaAdministrativa() {
+    @Override
+    public void processar() {
         sacar(taxaAdministrativa);
+    }
+
+    @Override
+    public String getTipo() {
+        return "cc";
     }
 }
