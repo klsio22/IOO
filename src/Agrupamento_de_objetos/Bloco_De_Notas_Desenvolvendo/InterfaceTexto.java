@@ -1,10 +1,10 @@
-package Agrupamento_de_objetos.Bloco_De_Notas_Adicionar_Listagem;
+package Agrupamento_de_objetos.Bloco_De_Notas_Desenvolvendo;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class InterfaceTexto {
     private static final String SAIR = "sair";
-
     private Scanner entrada;
     private String opcao;
 
@@ -33,6 +33,12 @@ public class InterfaceTexto {
             case "2":
                 listar();
                 break;
+            case "3":
+                remover();
+                break;
+            case "4":
+                pesquisar();
+                break;
             case SAIR:
                 sln("Tchau!");
                 return;
@@ -51,19 +57,74 @@ public class InterfaceTexto {
     }
 
     private void listar() {
+        mostrarNotas(bloco.getNotas());
+    }
+
+    private void pesquisar() {
+        String palavraChave = leia("Digite o termo de busca:");
+
+        ArrayList<Nota> notasEncontradas = bloco.pesquisar(palavraChave);
+        mostrarNotas(notasEncontradas);
+    }
+
+    private void mostrarNotas(ArrayList<Nota> notas) {
         sln("-----------------------------------------");
         sln("|        Visualização das Notas         |");
         sln("-----------------------------------------");
-        sln(bloco.getQuantidadeDeNotas() + " nota(s) cadastrada(s)");
+        sln(notas.size() + " encotradas(s)");
         sln("-----------------------------------------");
 
         int i = 0;
-        for (Nota nota : bloco.getNotas()) {
+        for (Nota nota : notas) {
             sln("Nota: " + ++i);
             sln("Título: \n\t" + nota.getTitulo());
             sln("Texto: \n\t" + nota.getTexto());
             sln("-----------------------------------------");
         }
+
+    }
+
+    private void remover() {
+        if (bloco.getQuantidadeDeNotas() == 0) {
+            sln("Não exitem notas cadastradas!");
+            return;
+        }
+
+        listarParaRemocao();
+        sln();
+        String indiceS = leia("Digite o indice da nota que deseja remover");
+
+        try {
+            int indice = Integer.parseInt(indiceS);
+            Nota notaRemovida = bloco.remover(indice);
+            if (notaRemovida != null) {
+                slnf("A nota %s foi removida com sucesso!", notaRemovida.getTitulo());
+            } else {
+                sln("Indice inválido!");
+                slnf("Não existe uma nota com o indice %s cadastrada", indiceS);
+            }
+        } catch (NumberFormatException e) {
+            slnf("Indice (%s) não é um número!", indiceS);
+        }
+
+    }
+
+
+    private void listarParaRemocao() {
+
+        sln("-----------------------------------------");
+        sln("| Indice | Titulo da Nota         |");
+        sln("-----------------------------------------");
+
+        ArrayList<Nota> notas = bloco.getNotas();
+
+        for (int i = 0; i < notas.size(); i++) {
+            Nota nota = notas.get(i);
+
+            System.out.printf("  %4d   | %s \n", i, nota.getTitulo());
+            sln("-----------------------------------------");
+        }
+
     }
 
     private void menu() {
@@ -74,6 +135,8 @@ public class InterfaceTexto {
         sln("########################################");
         sln("# 1 - Adicionar                        #");
         sln("# 2 - Listar                           #");
+        sln("# 3 - Remover                          #");
+        sln("# 4 - Pesquisar                        #");
         sln("#                                      #");
         sln("# Digite sair para encerrar            #");
         sln("########################################");
@@ -93,9 +156,9 @@ public class InterfaceTexto {
     }
 
     private void limpar() {
-       // s("\f");             // Limpa terminal do Bluej
+        // s("\f");             // Limpa terminal do Bluej
         //s("\033[H\033[2J");  // Limpa terminal do Linux
-        //System.out.flush();  // Limpa terminal linux
+        // System.out.flush();  // Limpa terminal linux
     }
 
     private void sln() {
@@ -110,8 +173,7 @@ public class InterfaceTexto {
         System.out.print(s);
     }
 
-    private void souf(String s, String sf) {
+    private void slnf(String s, String sf) {
         System.out.printf(s, sf);
     }
-
 }
