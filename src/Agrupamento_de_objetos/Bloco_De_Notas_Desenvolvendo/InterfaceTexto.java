@@ -52,8 +52,19 @@ public class InterfaceTexto {
         String titulo = leia("Digite o título da nota: ");
         String texto = leia("Digite o texto da nota: ");
 
+
         Nota nota = new Nota(titulo, texto);
-        bloco.adicionaNota(nota);
+
+        if (nota.eValido()) {
+            bloco.adicionaNota(nota);
+        } else {
+            sln("Nota não adicionada , os seguintes erros foram encotrados: ");
+            for (String erro : nota.getErros()) {
+                sln(erro);
+            }
+        }
+
+
     }
 
     private void listar() {

@@ -1,20 +1,25 @@
 package Agrupamento_de_objetos.Bloco_De_Notas_Desenvolvendo;
 
+import java.util.ArrayList;
+
 public class Nota {
     private String titulo;
     private String texto;
+
+    private ArrayList<String> erros;
 
     public Nota() {
         this("", "");
     }
 
     public Nota(String titulo, String texto) {
-        this.titulo = titulo;
-        this.texto = texto;
+        erros = new ArrayList<>();
+        setTitulo(titulo);
+        setTexto(texto);
     }
 
     public void setTitulo(String titulo) {
-        this.titulo = titulo;
+        this.titulo = titulo.trim();
     }
 
     public String getTitulo() {
@@ -22,10 +27,27 @@ public class Nota {
     }
 
     public void setTexto(String texto) {
-        this.texto = texto;
+        this.texto = texto.trim();
     }
 
     public String getTexto() {
         return texto;
     }
+
+    public ArrayList<String> getErros() {
+        return erros;
+    }
+
+    public boolean eValido() {
+        erros.clear();
+
+        if (titulo.isEmpty())
+            erros.add("Título não pode ser vazio");
+
+        if (texto.isEmpty())
+            erros.add("Texto não pode ser vazio");
+
+        return erros.isEmpty();
+    }
+
 }
