@@ -1,4 +1,5 @@
 package ExLista_IOO_02.Dados_pessoais;
+
 import java.util.Calendar;
 
 public class Pessoa {
@@ -40,7 +41,7 @@ public class Pessoa {
 
     public int getIdade() {
         //int dataAtual = Calendar.getInstance().get(Calendar.YEAR);
-        return  getAnoAtual() - getAnoDeNascimento();
+        return getAnoAtual() - getAnoDeNascimento();
     }
 
     public int getIdadeEmMeses() {

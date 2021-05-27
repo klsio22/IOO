@@ -58,7 +58,8 @@ public class InterfaceTexto {
         if (nota.eValido()) {
             bloco.adicionaNota(nota);
         } else {
-            sln("Nota não adicionada , os seguintes erros foram encotrados: ");
+            sln();
+            sln("Não foi possível adiconar a nota, devidos aos seguintes problemas: ");
             for (String erro : nota.getErros()) {
                 sln(erro);
             }

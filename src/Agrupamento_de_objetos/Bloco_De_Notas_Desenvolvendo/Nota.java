@@ -42,10 +42,10 @@ public class Nota {
         erros.clear();
 
         if (titulo.isEmpty())
-            erros.add("Título não pode ser vazio");
+            erros.add("1. Título não pode ser vazio");
 
         if (texto.isEmpty())
-            erros.add("Texto não pode ser vazio");
+            erros.add("2. Texto não pode ser vazio");
 
         return erros.isEmpty();
     }

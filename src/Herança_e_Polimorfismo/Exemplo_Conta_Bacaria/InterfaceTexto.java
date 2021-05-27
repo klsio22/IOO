@@ -38,7 +38,7 @@ public class InterfaceTexto {
 
     /*
      **************************************************************
-     * Menu Principal
+     * Menu Teste01
      **************************************************************/
     private void menuPrincipal() {
         String titulo = "Bando de IOO";

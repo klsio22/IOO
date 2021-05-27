@@ -1,5 +1,4 @@
-package AA4_IOO.sistema_do_pedagio;
-//Klésio Antônio do Nascimento
+package Prova_de_Recuperação;
 
 import java.text.NumberFormat;
 import java.util.Locale;
@@ -13,7 +12,6 @@ public class InterfaceTexto {
     private NumberFormat formatador = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
 
     private Pedagio pedagio;
-    private Veiculos veiculos;
 
     public InterfaceTexto() {
         entrada = new Scanner(System.in);
@@ -34,10 +32,10 @@ public class InterfaceTexto {
 
     /*
      **************************************************************
-     * Menu Teste01
+     * Menu Principal
      **************************************************************/
     private void menuPrincipal() {
-        String titulo = "Pedágio de IOO";
+        String titulo = "Pedagio de IOO";
 
         sln("----------------------------------------");
         sln("|" + centralizarTitulo(titulo) + "|");
@@ -81,17 +79,27 @@ public class InterfaceTexto {
 
     private void registrarPassagemDeVeiculo() {
         sln("------------------------------------------");
-        sln("|          Registro de Veículos           |");
+        sln("|           Tipos de Veículos            |");
         sln("------------------------------------------");
-        sln();
+        sln("| 1 - Veículo Passeio                    |");
+        sln("| 2 - Caminhao                           |");
+        sln("|                                        |");
+        sln("| Precione enter para cancelar           |");
+        sln("------------------------------------------");
 
+        String tipoDoVeiculo = leia("Digite o tipo de veículo: ");
         String placa = leia("Digite a placa do veículo: ");
-        int numeroDeEixos = leiaInteiro("Digite o numero de eixos: ");
 
-        if (numeroDeEixos > 2)
-            pedagio.registrarPassagemVeiculo(new Caminhao(placa, numeroDeEixos));
-        else
-            pedagio.registrarPassagemVeiculo(new Automovel(placa, numeroDeEixos));
+        switch (tipoDoVeiculo) {
+            case "1":
+                pedagio.registrarPassagemVeiculo(new Automovel(placa));
+                break;
+            case "2":
+                int numeroDeEixos = leiaInteiro("Digite o numero de eixos: ");
+                pedagio.registrarPassagemVeiculo(new Caminhao(placa, numeroDeEixos));
+                break;
+        }
+
 
     }
 
@@ -103,18 +111,23 @@ public class InterfaceTexto {
     }
 
     private void listarVeiculos() {
+
+
         sln("---------------------------------------------------------------------");
         sln("|               Veículos que passaram pelo pedágio                  |");
         sln("---------------------------------------------------------------------");
-        sln("| Placa  |    Tipo    | Nº de eixos | Tipo de Tarifa | Tarifa Total |");
+        sln("| Placa  |    Tipo    | Nº de eixos | Tipo de Tarifa | Tarifa Total |" +
+                " Data e horas |");
         sln("---------------------------------------------------------------------");
 
-        for (Veiculos v : pedagio.getVeiculos()) {
-            sf("| %-6s | %-10s | %-11d | %-14s | %-12s |\n", v.getPlaca(),
-                    v.getTipo(),
-                    v.getNumeroDeEixos(),
+        for (Veiculo v : pedagio.getVeiculos()) {
+            sf("| %-6s | %-10s | %-11d | %-14s | %-12s | %-12s |\n",
+                    v.getPlaca(),
+                    v.getTipo(), v.getNumeroDeEixos(),
                     v.getTipoDeTarifa(),
-                    formatador.format(v.getTarifa()));
+                    formatador.format(v.getTarifa()),
+                    v.getDataHora());
+
             sln("---------------------------------------------------------------------");
         }
     }
