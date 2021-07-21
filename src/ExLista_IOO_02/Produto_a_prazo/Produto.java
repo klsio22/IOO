@@ -27,7 +27,6 @@ public class Produto {
     }
 
     public double getPorcentagemDeDesconto() {
-
         return (porcentagemDeDesconto);
     }
 

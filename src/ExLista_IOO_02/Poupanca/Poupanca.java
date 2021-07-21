@@ -40,6 +40,7 @@ public class Poupanca {
 
     public double getSaldoNoFinalDoPrazo() {
         //Não achei a formula para calcular o saldo no final do prazo.
+        //F = P.(1+i)n + M.[(1+i)n - 1]/i
         double juros = getTaxaJurosMensal() / 100;
 
         return 0.0;
