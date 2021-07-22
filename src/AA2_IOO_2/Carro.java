@@ -1,4 +1,5 @@
 package AA2_IOO_2;
+//Klesio Antonio do Nascimento
 
 public class Carro {
     private double kmPorLitro, precoDoCombustivel;
@@ -12,8 +13,9 @@ public class Carro {
         this.kmPorLitro = kmPorLitro;
     }
 
-    private void setPrecoDoCombustivel(double precoDoCombustivel) {
-        this.precoDoCombustivel = precoDoCombustivel;
+    public void setPrecoDoCombustivel(double precoDoCombustivel) {
+        if (precoDoCombustivel > 0)
+            this.precoDoCombustivel = precoDoCombustivel;
     }
 
     public double getPrecoDoCombustivel() {

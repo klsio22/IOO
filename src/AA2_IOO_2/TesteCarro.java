@@ -1,4 +1,5 @@
 package AA2_IOO_2;
+//Klesio Antonio do Nascimento
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -26,4 +27,11 @@ class TesteCarro {
 	public void deveCalcularOCustoDoKmRodado() {
 		assertEquals(0.42, carro.getCustoDoKm(), DELTA);
 	}
+
+	@Test
+	public void naoDeveAtribuirValorNegativoParaCompustivel() {
+		carro.setPrecoDoCombustivel(-10);
+		assertEquals(4.2, carro.getPrecoDoCombustivel());
+	}
+
 }

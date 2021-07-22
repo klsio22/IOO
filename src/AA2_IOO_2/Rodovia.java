@@ -1,4 +1,5 @@
 package AA2_IOO_2;
+//Klesio Antonio do Nascimento
 
 public class Rodovia {
 
@@ -38,7 +39,6 @@ public class Rodovia {
 
 
     public double getCustoDaViagemRodovia() {
-
         return (getDistancia() / distanciaEntrePedagios) * precoDeCadaPedagio;
     }
 
