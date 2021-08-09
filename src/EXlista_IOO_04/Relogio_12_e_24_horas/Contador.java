@@ -1,4 +1,4 @@
-package EXlista_IOO_04.Relogio_12_Horas;
+package EXlista_IOO_04.Relogio_12_e_24_horas;
 
 public class Contador {
     private int valor;
@@ -18,11 +18,11 @@ public class Contador {
     }
 
     public void incrementa() {
-        /*valor++;
+        valor++;
         if (valor == limite)
             valor = 0;
-    */
-        valor = (valor + 1) % limite;
+
+        //valor = (valor + 1) % limite;
 
     }
 
