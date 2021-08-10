@@ -7,7 +7,6 @@ public class InterfaceTexto {
     private static final String SAIR = "sair";
     private Scanner entrada;
     private String opcao;
-
     private BlocoDeNotas bloco;
 
     public InterfaceTexto() {
@@ -52,11 +51,16 @@ public class InterfaceTexto {
         String titulo = leia("Digite o título da nota: ");
         String texto = leia("Digite o texto da nota: ");
 
-
         Nota nota = new Nota(titulo, texto);
 
         if (nota.eValido()) {
-            bloco.adicionaNota(nota);
+            if (bloco.encontrarTituloNota(titulo)) {
+                sln("Nota não adicionada!");
+                slnf("Já exixte uma nota com titulo '%s'", titulo);
+            } else {
+                bloco.adicionaNota(nota);
+                sln("Nota adicionada com sucesso!");
+            }
         } else {
             sln();
             sln("Não foi possível adiconar a nota, devidos aos seguintes problemas: ");
@@ -64,7 +68,6 @@ public class InterfaceTexto {
                 sln(erro);
             }
         }
-
 
     }
 
@@ -120,7 +123,6 @@ public class InterfaceTexto {
         }
 
     }
-
 
     private void listarParaRemocao() {
 

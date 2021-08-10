@@ -1,4 +1,4 @@
-package AA3_IOO;
+package AA3_IOO_minicurso;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

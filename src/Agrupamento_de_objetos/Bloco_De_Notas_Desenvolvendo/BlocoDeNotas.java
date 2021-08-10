@@ -1,5 +1,7 @@
 package Agrupamento_de_objetos.Bloco_De_Notas_Desenvolvendo;
 
+import AA3_Solucao_minicurso.Aluno;
+
 import java.util.ArrayList;
 
 
@@ -49,6 +51,18 @@ public class BlocoDeNotas {
         }
 
         return notasEncontradas;
+    }
+
+
+    public boolean encontrarTituloNota(String palavraChave) {
+
+        for(Nota nota : notas) {
+            String titulo = nota.getTitulo();
+
+            if (titulo.equals(palavraChave) || titulo.contains(palavraChave))
+                return true;
+        }
+        return false;
     }
 
 }

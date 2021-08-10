@@ -1,4 +1,4 @@
-package AA3_IOO;
+package AA3_IOO_minicurso;
 //Klesio Antonio do Nascimento
 
 import java.util.ArrayList;
