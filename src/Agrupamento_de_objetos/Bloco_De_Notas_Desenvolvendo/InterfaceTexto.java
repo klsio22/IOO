@@ -22,6 +22,23 @@ public class InterfaceTexto {
         } while (!opcao.equals(SAIR));
     }
 
+    private void menu() {
+        sln("########################################");
+        sln("#           Bloco de Notas             #");
+        sln("########################################");
+        sln("#               Menu                   #");
+        sln("########################################");
+        sln("# 1 - Adicionar                        #");
+        sln("# 2 - Listar                           #");
+        sln("# 3 - Remover                          #");
+        sln("# 4 - Pesquisar                        #");
+        sln("# 5 - Alterar                          #");
+        sln("#                                      #");
+        sln("# Digite sair para encerrar            #");
+        sln("########################################");
+        sln("");
+    }
+
     private void leiaVerifique() {
         opcao = leia("Digite a opção escolhida");
         limpar();
@@ -38,6 +55,8 @@ public class InterfaceTexto {
             case "4":
                 pesquisar();
                 break;
+            case "5":
+                alterar();
             case SAIR:
                 sln("Tchau!");
                 return;
@@ -45,6 +64,12 @@ public class InterfaceTexto {
                 sln("Opção inválida!!");
         }
         pause();
+    }
+
+    private void pause() {
+        sln();
+        sln("Pressione a tecla enter para continuar..");
+        entrada.nextLine();
     }
 
     private void adicionar() {
@@ -113,7 +138,7 @@ public class InterfaceTexto {
             int indice = Integer.parseInt(indiceS);
             Nota notaRemovida = bloco.remover(indice);
             if (notaRemovida != null) {
-                slnf("A nota %s foi removida com sucesso!", notaRemovida.getTitulo());
+                slnf("A nota '%s' foi removida com sucesso!", notaRemovida.getTitulo());
             } else {
                 sln("Indice inválido!");
                 slnf("Não existe uma nota com o indice %s cadastrada", indiceS);
@@ -141,26 +166,48 @@ public class InterfaceTexto {
 
     }
 
-    private void menu() {
-        sln("########################################");
-        sln("#           Bloco de Notas             #");
-        sln("########################################");
-        sln("#               Menu                   #");
-        sln("########################################");
-        sln("# 1 - Adicionar                        #");
-        sln("# 2 - Listar                           #");
-        sln("# 3 - Remover                          #");
-        sln("# 4 - Pesquisar                        #");
-        sln("#                                      #");
-        sln("# Digite sair para encerrar            #");
-        sln("########################################");
-        sln("");
+    private void alterar() {
+        if (bloco.getQuantidadeDeNotas() == 0) {
+            sln("Não exitem notas cadastradas!");
+            return;
+        }
+
+        String indiceS = leia("Digite o indice da nota que deseja alterar: ");
+        int indice = Integer.parseInt(indiceS);
+        mostrarNota(indice);
+
+        try {
+            String titulo = leia("Digite o novo título da nota: ");
+            String texto = leia("Digite o novo texto da nota: ");
+
+            Nota nota = new Nota(titulo, texto);
+
+            Nota notaAlterada = bloco.alterar(indice, nota);
+            if (notaAlterada != null) {
+                slnf("A nota '%s' foi alterada com sucesso!", notaAlterada.getTitulo());
+            } else {
+                sln("Indice inválido!");
+                slnf("Não existe uma nota com o indice %s cadastrada", indiceS);
+            }
+        } catch (NumberFormatException e) {
+            slnf("Indice (%s) não é um número!", indiceS);
+        }
+
     }
 
-    private void pause() {
-        sln();
-        sln("Pressione a tecla enter para continuar..");
-        entrada.nextLine();
+    private void mostrarNota(int indice) {
+        sln("-----------------------------------------");
+        sln("|        Alteração de Notas             |");
+        sln("-----------------------------------------");
+
+        int i = 1 - indice;
+        Nota nota = bloco.getNota(i);
+
+        sln("Nota: " + indice);
+        sln("Título: \n\t" + nota.getTitulo());
+        sln("Texto: \n\t" + nota.getTexto());
+        sln("-----------------------------------------");
+
     }
 
     private String leia(String s) {

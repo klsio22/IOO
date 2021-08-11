@@ -1,7 +1,5 @@
 package Agrupamento_de_objetos.Bloco_De_Notas_Desenvolvendo;
 
-import AA3_Solucao_minicurso.Aluno;
-
 import java.util.ArrayList;
 
 
@@ -37,6 +35,20 @@ public class BlocoDeNotas {
         return null;
     }
 
+
+    public Nota alterar(int indice, Nota novaNota) {
+        if (indice >= 0 && indice < notas.size()) {
+            Nota notaAlterada = notas.set(indice, novaNota);
+            bancoDeDados.sobrescrever(notas);
+            return notaAlterada;
+        }
+        return null;
+    }
+
+    public Nota getNota(int indice){
+        return notas.get(indice);
+    }
+
     public ArrayList<Nota> pesquisar(String palavraChave) {
         ArrayList<Nota> notasEncontradas = new ArrayList<>();
         palavraChave = palavraChave.toLowerCase();
@@ -56,10 +68,10 @@ public class BlocoDeNotas {
 
     public boolean encontrarTituloNota(String palavraChave) {
 
-        for(Nota nota : notas) {
+        for (Nota nota : notas) {
             String titulo = nota.getTitulo();
 
-            if (titulo.equals(palavraChave) || titulo.contains(palavraChave))
+            if (titulo.equals(palavraChave))
                 return true;
         }
         return false;
