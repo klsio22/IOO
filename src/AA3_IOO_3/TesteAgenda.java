@@ -1,5 +1,5 @@
 package AA3_IOO_3;
-//Klesi Antonio do Nascimento
+//Klesio Antonio do Nascimento
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
@@ -50,7 +50,6 @@ class TesteTime {
         String sobrenome = "Marczal";
 
         assertTrue(time.existeJogador(nome, sobrenome));
-
     }
 
     @Test
@@ -76,8 +75,6 @@ class TesteTime {
         assertEquals(2, jogador.getGols());
 
     }
-
-
 
 
 }

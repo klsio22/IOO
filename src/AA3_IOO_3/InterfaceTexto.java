@@ -1,5 +1,8 @@
 package AA3_IOO_3;
-//Klesi Antonio do Nascimento
+//Klesio Antonio do Nascimento
+
+import Agrupamento_de_objetos.Bloco_De_Notas_Desenvolvendo.Nota;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -93,7 +96,7 @@ public class InterfaceTexto {
         if (time.existeJogador(nome)) {
             String gols = leia("Digite o numero de gol(s) marcado(s):");
             int numeroGols = Integer.parseInt(gols);
-            time.golsJogador(nome,numeroGols);
+            time.golsJogador(nome, numeroGols);
             sln("Gols adicionado com sucesso!");
         } else {
             sln("Jogador não adicionado!");
@@ -105,6 +108,12 @@ public class InterfaceTexto {
 
 
     private void artilheiro() {
+        if (time.getQuantidadeDeJogadores() == 0) {
+            sln("Não exitem jogadores cadastradas!");
+
+            return;
+        }
+
         sln("-----------------------------------------");
         sln("| Indice | Artinheiro                   |");
         sln("-----------------------------------------");
@@ -119,17 +128,39 @@ public class InterfaceTexto {
     }
 
     private void remover() {
-        listarJogadoresComIndice();
+        if (time.getQuantidadeDeJogadores() == 0) {
+            sln("Não exitem jogadores cadastradas!");
 
+            return;
+        }
+
+        listarJogadoresComIndice();
         sln();
         String indiceS = leia("Digite o índice do jogador que deseja remover");
-        int indice = Integer.parseInt(indiceS);
-        Jogador jogadorRemovido = time.remover(indice);
-        sln("O jogador '" + jogadorRemovido.getNomeCompleto() + "' foi removido com sucesso!");
+
+        try {
+            int indice = Integer.parseInt(indiceS);
+            Jogador jogadorRemovido = time.remover(indice);
+            if (jogadorRemovido != null) {
+                sln("O jogador '" + jogadorRemovido.getNomeCompleto() + "' foi removido com sucesso!");
+            } else {
+                sln("Indice inválido!");
+                slnf("Não existe uma nota com o indice %s cadastrada", indiceS);
+            }
+        } catch (NumberFormatException e) {
+            slnf("Indice (%s) não é um número!", indiceS);
+        }
+
     }
 
 
     private void pesquisar() {
+        if (time.getQuantidadeDeJogadores() == 0) {
+            sln("Não exitem jogadores cadastradas!");
+
+            return;
+        }
+
         String palavraChave = leia("Digite o termo de busca");
 
         listarJogadores(time.pesquisar(palavraChave));

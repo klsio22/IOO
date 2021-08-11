@@ -1,5 +1,5 @@
 package AA3_IOO_3;
-//Klesi Antonio do Nascimento
+//Klesio Antonio do Nascimento
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -104,27 +104,14 @@ public class Time {
         this.maior = maior;
     }
 
-    private  int getMaior() {
+    private int getMaior() {
         return maior;
     }
 
     public String artilheiro() {
-        String artilheiro;
-        int gols;
 
-        for (Jogador jogador : jogadores) {
-            gols = jogador.getGols();
 
-            if (getMaior() > gols) {
-                return jogador.getNomeCompleto();
-            }else{
-                setMaior(gols);
-                return jogador.getNomeCompleto();
-            }
-
-        }
-
-        return "";
+        return null;
     }
 
 
