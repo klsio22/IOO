@@ -1,5 +1,5 @@
 package AA3_IOO_3;
-//Klesio Antonio do Nascimento
+//Klésio Antônio do Nascimento
 
 import Agrupamento_de_objetos.Bloco_De_Notas_Desenvolvendo.Nota;
 
