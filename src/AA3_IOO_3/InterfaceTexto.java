@@ -44,6 +44,8 @@ public class InterfaceTexto {
                 break;
             case "5":
                 golsJogador();
+            case "6":
+                artilheiro();
             case SAIR:
                 sln("Tchau!");
                 return;
@@ -51,6 +53,11 @@ public class InterfaceTexto {
                 sln("Opção inválida!!");
         }
         pause();
+    }
+
+    private void artilheiro() {
+
+
     }
 
     private void adicionar() {
@@ -86,20 +93,19 @@ public class InterfaceTexto {
             return;
         }
 
-        String gols = leia("Digite o numero de gols marcado:");
-        int numeroGols = Integer.parseInt(gols);
-
         String nome = leia("Digite o nome do jogador que marcou o gol: ");
-
         Jogador jogador = new Jogador(nome);
 
-        if (jogador.getNome().equals(nome)) {
+        if (time.existeJogador(nome)) {
+            String gols = leia("Digite o numero de gol(s) marcado(s):");
+            int numeroGols = Integer.parseInt(gols);
+
             time.golsJogador(nome,numeroGols);
             jogador.setGols(numeroGols);
             sln("Gols adicionado com sucesso!");
         } else {
             sln("Jogador não adicionado!");
-            sf("não existe esse jogador '%s' ", nome);
+            sf("não existe o jogador '%s' ", nome);
         }
 
         pause();
@@ -156,7 +162,7 @@ public class InterfaceTexto {
         for (Jogador jogador : jogadores) {
             sln("Jogador: " + ++i);
             sln("Nome completo: " + jogador.getNomeCompleto());
-            sln("Gols marcados: " + jogador.getGols());
+            sln("Gol(s) marcado(s): " + jogador.getGols());
             sln("-----------------------------------------");
         }
     }
@@ -171,7 +177,7 @@ public class InterfaceTexto {
         sln("# 2 - Listar jogadores                 #");
         sln("# 3 - Remover jogador                  #");
         sln("# 4 - Pesquisar                        #");
-        sln("# 5 - gols                             #");
+        sln("# 5 - Gols Marcados                    #");
         sln("#                                      #");
         sln("#                                      #");
         sln("# Digite sair para encerrar            #");

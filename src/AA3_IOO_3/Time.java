@@ -74,6 +74,20 @@ public class Time {
         return false;
     }
 
+    public boolean existeJogador(String palavraChave1 ) {
+
+
+        for (Jogador jogador : jogadores) {
+            String nome = jogador.getNome().toLowerCase();
+
+            if (nome.equals(palavraChave1.toLowerCase())) {
+                return true;
+            }
+
+        }
+        return false;
+    }
+
     public boolean golsJogador(String palavraChave1 , int gols) {
 
         for (Jogador jogador : jogadores) {

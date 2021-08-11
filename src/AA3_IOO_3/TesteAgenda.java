@@ -43,8 +43,14 @@ class TesteTime {
 
     @Test
     public void naoDeveRigistarJogadorComMesmoNome() {
-        String nome = "Marcos";
+
+        String nome = "MAcos";
         String sobrenome = "Marczal";
+
+        Jogador jogador = new Jogador(nome, sobrenome);
+
+        if (time.existeJogador(nome, sobrenome))
+            assertEquals("Já exixte esse jogador '%s'", jogador.getNomeCompleto());
 
 
     }
