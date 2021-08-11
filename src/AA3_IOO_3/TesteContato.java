@@ -1,4 +1,5 @@
 package AA3_IOO_3;
+//Klesi Antonio do Nascimento
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -8,8 +9,7 @@ import org.junit.jupiter.api.Test;
 class TesteContato {
 
 	private Jogador jogador;
-	private Time time;
-	
+
 	@BeforeEach
 	public void antesDeCadaTeste() {
 		jogador = new Jogador();
@@ -84,5 +84,12 @@ class TesteContato {
 		assertEquals("Diego Marczal", jogador.getNomeCompleto());
 	}
 
+	@Test
+	public void contagemDeGols() {
+		jogador.setGols(3);
+		jogador.setGols(2);
+
+		assertEquals(5,jogador.getGols());
+	}
 
 }

@@ -1,7 +1,5 @@
 package AA3_IOO_3;
-
-import Agrupamento_de_objetos.Bloco_De_Notas_Desenvolvendo.Nota;
-
+//Klesi Antonio do Nascimento
 import java.util.List;
 import java.util.Scanner;
 
@@ -44,8 +42,10 @@ public class InterfaceTexto {
                 break;
             case "5":
                 golsJogador();
+                break;
             case "6":
                 artilheiro();
+                break;
             case SAIR:
                 sln("Tchau!");
                 return;
@@ -55,10 +55,6 @@ public class InterfaceTexto {
         pause();
     }
 
-    private void artilheiro() {
-
-
-    }
 
     private void adicionar() {
         String nome = leia("Digite o nome do jogador: ");
@@ -83,34 +79,40 @@ public class InterfaceTexto {
             }
         }
 
-
     }
 
-    public void golsJogador() {
+    private void golsJogador() {
         if (time.getQuantidadeDeJogadores() == 0) {
             sln("Não exitem jogadores cadastradas!");
-            pause();
+
             return;
         }
 
         String nome = leia("Digite o nome do jogador que marcou o gol: ");
-        Jogador jogador = new Jogador(nome);
 
         if (time.existeJogador(nome)) {
             String gols = leia("Digite o numero de gol(s) marcado(s):");
             int numeroGols = Integer.parseInt(gols);
-
             time.golsJogador(nome,numeroGols);
-            jogador.setGols(numeroGols);
             sln("Gols adicionado com sucesso!");
         } else {
             sln("Jogador não adicionado!");
             sf("não existe o jogador '%s' ", nome);
         }
 
-        pause();
 
     }
+
+
+    private void artilheiro() {
+        sln("-----------------------------------------");
+        sln("| Indice | Artinheiro                   |");
+        sln("-----------------------------------------");
+
+        sln("Artilheiro: " + time.artilheiro());
+
+    }
+
 
     private void listar() {
         listarJogadores(time.getJogadores());
@@ -121,11 +123,8 @@ public class InterfaceTexto {
 
         sln();
         String indiceS = leia("Digite o índice do jogador que deseja remover");
-
         int indice = Integer.parseInt(indiceS);
-
         Jogador jogadorRemovido = time.remover(indice);
-
         sln("O jogador '" + jogadorRemovido.getNomeCompleto() + "' foi removido com sucesso!");
     }
 
@@ -178,6 +177,7 @@ public class InterfaceTexto {
         sln("# 3 - Remover jogador                  #");
         sln("# 4 - Pesquisar                        #");
         sln("# 5 - Gols Marcados                    #");
+        sln("# 6 - Artilheiro                       #");
         sln("#                                      #");
         sln("#                                      #");
         sln("# Digite sair para encerrar            #");

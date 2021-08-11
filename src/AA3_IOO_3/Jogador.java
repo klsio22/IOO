@@ -1,4 +1,5 @@
 package AA3_IOO_3;
+//Klesi Antonio do Nascimento
 
 import java.util.ArrayList;
 
@@ -19,10 +20,6 @@ public class Jogador {
         setNome(nome);
         setSobrenome(sobrenome);
 
-    }
-
-    public Jogador(String nome) {
-        setNome(nome);
     }
 
     public void setGols(int gols) {

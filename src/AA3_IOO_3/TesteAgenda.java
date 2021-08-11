@@ -1,4 +1,5 @@
 package AA3_IOO_3;
+//Klesi Antonio do Nascimento
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
@@ -40,25 +41,43 @@ class TesteTime {
         assertEquals(0, time.getQuantidadeDeJogadores());
     }
 
-
     @Test
-    public void naoDeveRigistarJogadorComMesmoNome() {
+    public void existeJogadorComMesmoNomeESobrenome() {
+        time.adicionaJogador(jogador);
+        assertEquals(jogador, time.getJogadores().get(0));
 
-        String nome = "MAcos";
+        String nome = "Diego";
         String sobrenome = "Marczal";
 
-        Jogador jogador = new Jogador(nome, sobrenome);
-
-        if (time.existeJogador(nome, sobrenome))
-            assertEquals("Já exixte esse jogador '%s'", jogador.getNomeCompleto());
-
+        assertTrue(time.existeJogador(nome, sobrenome));
 
     }
 
     @Test
-    public void DeveRigistarNovoJogador() {
+    public void existeJogadorComMesmoNome() {
+        time.adicionaJogador(jogador);
+        assertEquals(jogador, time.getJogadores().get(0));
 
+        String nome = "Diego";
+        assertTrue(time.existeJogador(nome));
+    }
+
+    @Test
+    public void adicionarGolsDoJogador() {
+        time.adicionaJogador(jogador);
+        assertEquals(jogador, time.getJogadores().get(0));
+
+        String nome = "Diego";
+        assertTrue(time.existeJogador(nome));
+
+        int gols = 2;
+
+        assertTrue(time.golsJogador(nome, gols));
+        assertEquals(2, jogador.getGols());
 
     }
+
+
+
 
 }

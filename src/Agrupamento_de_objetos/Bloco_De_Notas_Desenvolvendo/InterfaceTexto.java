@@ -152,7 +152,7 @@ public class InterfaceTexto {
     private void listarParaRemocao() {
 
         sln("-----------------------------------------");
-        sln("| Indice | Titulo da Nota         |");
+        sln("| Indice | Titulo da Nota               |");
         sln("-----------------------------------------");
 
         ArrayList<Nota> notas = bloco.getNotas();

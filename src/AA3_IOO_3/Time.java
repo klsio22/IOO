@@ -1,15 +1,14 @@
 package AA3_IOO_3;
-
-import Agrupamento_de_objetos.Bloco_De_Notas_Desenvolvendo.Nota;
+//Klesi Antonio do Nascimento
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Locale;
 
 public class Time {
 
     private ArrayList<Jogador> jogadores;
+    private int maior = 0;
 
     public Time() {
         jogadores = new ArrayList<>();
@@ -58,8 +57,7 @@ public class Time {
     }
 
 
-    public boolean existeJogador(String palavraChave1 , String palavraChave2) {
-
+    public boolean existeJogador(String palavraChave1, String palavraChave2) {
 
         for (Jogador jogador : jogadores) {
             String nome = jogador.getNome().toLowerCase();
@@ -74,7 +72,7 @@ public class Time {
         return false;
     }
 
-    public boolean existeJogador(String palavraChave1 ) {
+    public boolean existeJogador(String palavraChave1) {
 
 
         for (Jogador jogador : jogadores) {
@@ -88,18 +86,45 @@ public class Time {
         return false;
     }
 
-    public boolean golsJogador(String palavraChave1 , int gols) {
+    public boolean golsJogador(String palavraChave1, int gols) {
 
         for (Jogador jogador : jogadores) {
             String nome = jogador.getNome().toLowerCase();
 
-            if (nome.equals(palavraChave1.toLowerCase())){
+            if (nome.equals(palavraChave1.toLowerCase())) {
                 jogador.setGols(gols);
                 return true;
             }
 
         }
         return false;
+    }
+
+    private void setMaior(int maior) {
+        this.maior = maior;
+    }
+
+    private  int getMaior() {
+        return maior;
+    }
+
+    public String artilheiro() {
+        String artilheiro;
+        int gols;
+
+        for (Jogador jogador : jogadores) {
+            gols = jogador.getGols();
+
+            if (getMaior() > gols) {
+                return jogador.getNomeCompleto();
+            }else{
+                setMaior(gols);
+                return jogador.getNomeCompleto();
+            }
+
+        }
+
+        return "";
     }
 
 
