@@ -8,7 +8,7 @@ import java.util.List;
 public class Time {
 
     private ArrayList<Jogador> jogadores;
-    private int maior = 0;
+    private int maiorArtilheiro = 0;
 
     public Time() {
         jogadores = new ArrayList<>();
@@ -56,70 +56,72 @@ public class Time {
         return jogadoresEncontradas;
     }
 
-
-    public boolean existeJogador(String palavraChave1, String palavraChave2) {
+    public boolean existeJogador(String nomeJogador, String sobrenomeJogador) {
 
         for (Jogador jogador : jogadores) {
             String nome = jogador.getNome().toLowerCase();
             String sobrenome = jogador.getSobrenome().toLowerCase();
 
-            if (nome.equals(palavraChave1.toLowerCase()) ||
-                    sobrenome.equals(palavraChave2)) {
+            if (nome.equals(nomeJogador.toLowerCase()) &&
+                    sobrenome.equals(sobrenomeJogador.toLowerCase())) {
                 return true;
             }
-
         }
         return false;
     }
 
-    public boolean existeJogador(String palavraChave1) {
-
+    public boolean existeJogador(String nomeJogador) {
 
         for (Jogador jogador : jogadores) {
             String nome = jogador.getNome().toLowerCase();
 
-            if (nome.equals(palavraChave1.toLowerCase())) {
+            if (nome.equals(nomeJogador.toLowerCase())) {
                 return true;
             }
-
         }
         return false;
     }
 
-    public boolean golsJogador(String palavraChave1, int gols) {
+    public boolean golsJogador(String nomeDoJogador, int gols) {
+        Jogador jogador = encontraJogadorPeloNome(nomeDoJogador);
+        if (jogador == null) return false;
+        jogador.setGols(gols);
+        return true;
+    }
+
+    public void setMaiorArtilheiro(int maiorArtilheiro) {
+        this.maiorArtilheiro = maiorArtilheiro;
+    }
+
+    public int getMaiorArtilheiro() {
+        return maiorArtilheiro;
+    }
+
+    public String getArtilheiro() {
+        List<Jogador> jogadores = getJogadores();
+        String nomedoJogador = "";
+
+        for (int i = 0; i < jogadores.size(); i++) {
+            Jogador jogador = jogadores.get(i);
+
+            if (jogador.getGols() > maiorArtilheiro) {
+                setMaiorArtilheiro(jogador.getGols());
+                nomedoJogador = jogador.getNomeCompleto();
+            }
+        }
+        return nomedoJogador;
+    }
+
+    private Jogador encontraJogadorPeloNome(String nome) {
+        nome = nome.toLowerCase();
 
         for (Jogador jogador : jogadores) {
-            String nome = jogador.getNome().toLowerCase();
-
-            if (nome.equals(palavraChave1.toLowerCase())) {
-                jogador.setGols(gols);
-                return true;
+            String nomeDoJogadorDaVez = jogador.getNome().toLowerCase();
+            if (nome.equals(nomeDoJogadorDaVez)) {
+                return jogador;
             }
-
         }
-        return false;
-    }
-
-    private void setMaior(int maior) {
-        this.maior = maior;
-    }
-
-    private int getMaior() {
-        return maior;
-    }
-
-    public String artilheiro() {
-        for (Jogador jogador : jogadores) {
-
-            if (jogador.getGols() > getMaior()){
-                setMaior(jogador.getGols());
-                return jogador.getNomeCompleto();
-            }
-            return jogador.getNomeCompleto();
-        }
-
         return null;
     }
-
 
 }

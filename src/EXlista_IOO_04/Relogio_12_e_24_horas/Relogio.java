@@ -33,8 +33,8 @@ public class Relogio {
 
     }
 
-    private String adicionaPeriodo() {
-        return adicionaPeriodo = " " + getPeriodo();
+    private void adicionaPeriodo() {
+        adicionaPeriodo = " " + getPeriodo();
     }
 
     public void marcaRitmo() {
@@ -44,12 +44,16 @@ public class Relogio {
     }
 
     public void ajustaHora(int horas, int minutos) {
-        if (horas == 11 && minutos == 59)
-            adicionaPeriodo = " pm";
-            adicionaPeriodo();
 
-        this.horas.setValor(horas);
-        this.minutos.setValor(minutos);
+        if (horas == 11 && minutos == 59) {
+            this.horas.setValor(horas);
+            this.minutos.setValor(minutos);
+            trocaPeriodo();
+        } else {
+            this.horas.setValor(horas);
+            this.minutos.setValor(minutos);
+        }
+
     }
 
     public String getPeriodo() {

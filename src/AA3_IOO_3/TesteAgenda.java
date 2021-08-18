@@ -44,7 +44,6 @@ class TesteTime {
     @Test
     public void existeJogadorComMesmoNomeESobrenome() {
         time.adicionaJogador(jogador);
-        assertEquals(jogador, time.getJogadores().get(0));
 
         String nome = "Diego";
         String sobrenome = "Marczal";
@@ -53,25 +52,45 @@ class TesteTime {
     }
 
     @Test
-    public void existeJogadorComMesmoNome() {
+    public void naoExisteJogadorComMesmoNomeESobrenomeDiferente() {
         time.adicionaJogador(jogador);
-        assertEquals(jogador, time.getJogadores().get(0));
 
         String nome = "Diego";
-        assertTrue(time.existeJogador(nome));
+        String sobrenome = "Silva";
+
+        assertFalse(time.existeJogador(nome, sobrenome));
     }
 
     @Test
-    public void adicionarGolsDoJogador() {
+    public void existeJogadorComMesmoNome() {
         time.adicionaJogador(jogador);
-        assertEquals(jogador, time.getJogadores().get(0));
 
-        String nome = "Diego";
-        assertTrue(time.existeJogador(nome));
+        assertTrue(time.existeJogador("Diego"));
+    }
 
-        int gols = 2;
+    @Test
+    public void adicionarGolsAUmJogador() {
+        time.adicionaJogador(jogador);
+        time.adicionaJogador(new Jogador("Neymar", "Junior"));
 
-        assertTrue(time.golsJogador(nome, gols));
+        assertFalse(time.existeJogador("Pedro"));
+        assertTrue(time.existeJogador("Diego"));
+
+        assertTrue(time.golsJogador("Diego", 2));
+        assertEquals(2, jogador.getGols());
+
+    }
+
+    @Test
+    public void artilheiroDotime(){
+        assertEquals("",time.getArtilheiro());
+
+        time.adicionaJogador(jogador);
+        time.adicionaJogador(new Jogador("Neymar", "Junior"));
+
+        assertTrue(time.golsJogador("Diego", 2));
+
+        assertEquals("Diego Marczal", time.getArtilheiro());
         assertEquals(2, jogador.getGols());
 
     }

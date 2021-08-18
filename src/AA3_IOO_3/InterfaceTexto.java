@@ -68,11 +68,10 @@ public class InterfaceTexto {
         if (jogador.eValido()) {
             if (time.existeJogador(nome, sobrenome)) {
                 sln("Jogador não adicionado!");
-                slnf("Já exixte esse jogador '%s'", jogador.getNomeCompleto());
+                slnf("Já existe esse jogador '%s'", jogador.getNomeCompleto());
             } else {
                 time.adicionaJogador(jogador);
                 sln("Jogador adicionado com sucesso!");
-
             }
         } else {
             sln();
@@ -95,9 +94,15 @@ public class InterfaceTexto {
 
         if (time.existeJogador(nome)) {
             String gols = leia("Digite o numero de gol(s) marcado(s):");
-            int numeroGols = Integer.parseInt(gols);
-            time.golsJogador(nome, numeroGols);
-            sln("Gols adicionado com sucesso!");
+
+            try {
+                int numeroGols = Integer.parseInt(gols);
+                time.golsJogador(nome, numeroGols);
+                sln("Gols adicionado com sucesso!");
+            } catch (Exception e) {
+                slnf("Gols não adicionado, não é um número ou está vazio!", gols);
+            }
+
         } else {
             sln("Jogador não adicionado!");
             sf("não existe o jogador '%s' ", nome);
@@ -110,18 +115,23 @@ public class InterfaceTexto {
     private void artilheiro() {
         if (time.getQuantidadeDeJogadores() == 0) {
             sln("Não exitem jogadores cadastradas!");
-
             return;
         }
+        String artilheiro = time.getArtilheiro();
 
         sln("-----------------------------------------");
-        sln("| Indice | Artinheiro                   |");
+        sln("|           Artinheiro do Time          |");
         sln("-----------------------------------------");
 
-        sln("Artilheiro: " + time.artilheiro());
+
+        if (time.getMaiorArtilheiro() == 0) {
+            System.out.println("Ainda não temos artilheiros!");
+        } else {
+            System.out.println("Artilheiro: " + artilheiro);
+            System.out.println("Número de gols: " + time.getMaiorArtilheiro());
+        }
 
     }
-
 
     private void listar() {
         listarJogadores(time.getJogadores());
