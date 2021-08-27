@@ -12,7 +12,6 @@ public class InterfaceTexto {
 
     private Conta conta;
 
-
     public InterfaceTexto() {
         entrada = new Scanner(System.in);
         banco = new Banco();

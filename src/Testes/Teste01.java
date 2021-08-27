@@ -1,19 +1,19 @@
-package Testes;
+/*package Testes;
 
 import java.util.ArrayList;
 public class Teste01 {
     public static void main(String[] args) {
-        ArrayList<Funcionario> funcionarios = new ArrayList<>();
-        funcionarios.add(new Gerente("Fabiola da Silva", 10000));
-        funcionarios.add(new Secretario("João Silva", 1000));
+        ArrayList<Funcio> Funcios = new ArrayList<>();
+        Funcios.add(new Gerente("Fabiola da Silva", 10000));
+        Funcios.add(new Secretario("João Silva", 1000));
 
-        for (Funcionario funcionario : funcionarios) {
-            System.out.println("O salário de " + funcionario.getNome() + " é R$" + funcionario.getSalario());
+        for (Funcio funcio : Funcios) {
+            System.out.println("O salário de " + funcio.getNome() + " é R$" + funcio.getSalario());
         }
     }
 }
 
- class Secretario extends Funcionario {
+ class Secretario extends Funcio {
 
     public Secretario(String nome, double salario) {
         super(nome, salario);
@@ -26,7 +26,7 @@ public class Teste01 {
 
 
 
- class Gerente extends Funcionario {
+ class Gerente extends Funcio {
     public Gerente(String nome, double salario) {
         super(nome, salario);
     }
@@ -35,7 +35,6 @@ public class Teste01 {
         return 1.4;
     }
 }
-
 
  class Funcionario {
     private String nome;
@@ -58,4 +57,6 @@ public class Teste01 {
         return 1.1;
     }
 }
+
+ */
 

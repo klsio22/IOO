@@ -31,7 +31,6 @@ public abstract class Conta {
         return saldo;
     }
 
-
     public abstract void processar();
 
     public abstract String getTipo();

@@ -33,8 +33,7 @@ public class Time {
     }
 
     public Jogador remover(int indice) {
-    	Jogador jogadorRemovido = jogadores.remove(indice);
-    	return jogadorRemovido;
+    	return jogadores.remove(indice);
     }
 
     public boolean adicionarGol(String nomeDoJogador) {
@@ -49,7 +48,7 @@ public class Time {
     public Jogador getArtilheiro() {
     	if (jogadores.size() == 0) return null;
     	
-    	Jogador artilheiro = jogadores.get(0);
+            Jogador artilheiro = jogadores.get(0);
     	
     	for(Jogador jogador : jogadores) {
     		if (jogador.getGols() > artilheiro.getGols()) {

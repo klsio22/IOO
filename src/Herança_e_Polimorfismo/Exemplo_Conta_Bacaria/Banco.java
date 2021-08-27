@@ -9,7 +9,6 @@ public class Banco {
 
     private ArrayList<Conta> contas;
 
-
     public Banco() {
         contas = new ArrayList<>();
 
@@ -49,8 +48,6 @@ public class Banco {
         }
         return null;
     }
-
-
 
 /*
     public ContaCorrente getContaCorrente(int numero) {

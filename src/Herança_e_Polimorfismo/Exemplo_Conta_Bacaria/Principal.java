@@ -6,5 +6,10 @@ public class Principal {
     public static void main(String[] args) {
         InterfaceTexto it = new InterfaceTexto();
         it.renderizar();
+
+        Cliente cliente = new Cliente("Klesio");
+        Conta c = new ContaCorrente(cliente,1234);
+
+
     } 
 }
