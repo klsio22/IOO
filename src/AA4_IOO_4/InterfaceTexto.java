@@ -98,7 +98,7 @@ public class InterfaceTexto {
 				break;
 			case "2":
 				double salarioHorista = leiaDouble("Digite o salario do funcionário por hora: ");
-				double horasTrabalhadas = leiaDouble("Digite a quantidade de Horas trabalhadas:");
+				double horasTrabalhadas = leiaDouble("Digite a quantidade de horas trabalhadas:");
 				empresa.registraFuncionario(new Horista(nome, salarioHorista,horasTrabalhadas));
 				break;
 		}
@@ -118,7 +118,7 @@ public class InterfaceTexto {
 		sln("|  Nome  |    Tipo    |    Salário    |");
 		sln("---------------------------------------");
 
-		for (Funcinarios f : empresa.getFuncionarios()) {
+		for (Funcinario f : empresa.getFuncionarios()) {
 			sf("| %-6s | %-10s | %-13s |\n", f.getNome(),
 											 f.getTipo(),
 											 formatador.format(f.getSalario()));

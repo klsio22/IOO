@@ -4,13 +4,15 @@ package AA4_IOO_4;
 import org.junit.jupiter.api.BeforeEach;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.Test;
-public class testeFuncionarios  {
-    private Funcinarios funcinarios;
+
+public class testeFuncionarios {
+    private Funcinario funcinario;
 
     @BeforeEach
     public void antesDeCadaTeste() {
-        funcinarios = new Funcinarios("Diego", 800) {
+        funcinario = new Funcinario("Diego", 800) {
             @Override
             public String getTipo() {
                 return null;
@@ -20,12 +22,12 @@ public class testeFuncionarios  {
 
     @Test
     public void deveRetornarOSalarioDoHorista() {
-        assertEquals(800,funcinarios.getSalario());
+        assertEquals(800, funcinario.getSalario());
     }
 
     @Test
     public void deverRetornarOTipoHorista() {
-        assertEquals("Diego",funcinarios.getNome());
+        assertEquals("Diego", funcinario.getNome());
     }
 
 }
