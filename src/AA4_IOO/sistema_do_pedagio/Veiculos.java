@@ -18,7 +18,6 @@ public abstract class Veiculos {
         return numeroDeEixos;
     }
 
-
     public abstract String getTipoDeTarifa();
 
     public abstract double getTarifa();

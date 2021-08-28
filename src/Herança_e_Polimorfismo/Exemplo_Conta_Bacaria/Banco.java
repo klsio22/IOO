@@ -11,7 +11,6 @@ public class Banco {
 
     public Banco() {
         contas = new ArrayList<>();
-
     }
 
     public void registrarContaCorrente(Cliente cliente) {

@@ -1,4 +1,5 @@
-package Herança_e_Polimorfismo.Exemplo_Conta_Bacaria;
+package AA4_IOO_4;
+//Klésio Antônio do Nascimento - Turma: SI1B
 
 public class Principal {
     private Principal() {}
@@ -6,8 +7,5 @@ public class Principal {
     public static void main(String[] args) {
         InterfaceTexto it = new InterfaceTexto();
         it.renderizar();
-
-       // Cliente cliente = new Cliente("Klesio");
-      // Conta c = new ContaCorrente(cliente,1234);
-    }
+    } 
 }

@@ -20,4 +20,6 @@ public class Automovel extends Veiculos {
     public String getTipoDeTarifa() {
         return "Valor fixo";
     }
+
+
 }
