@@ -98,7 +98,7 @@ public class InterfaceTexto {
 				break;
 			case "2":
 				double salarioHorista = leiaDouble("Digite o salario do funcionário por hora: ");
-				double horasTrabalhadas = leiaDouble("Digite a Quantidade de Horas trabalhadas:");
+				double horasTrabalhadas = leiaDouble("Digite a quantidade de Horas trabalhadas:");
 				empresa.registraFuncionario(new Horista(nome, salarioHorista,horasTrabalhadas));
 				break;
 		}

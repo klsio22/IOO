@@ -10,7 +10,12 @@ public class testeFuncionarios  {
 
     @BeforeEach
     public void antesDeCadaTeste() {
-        //funcinarios = new Funcinarios("Diego", 80);
+        funcinarios = new Funcinarios("Diego", 800) {
+            @Override
+            public String getTipo() {
+                return null;
+            }
+        };
     }
 
     @Test
@@ -22,4 +27,5 @@ public class testeFuncionarios  {
     public void deverRetornarOTipoHorista() {
         assertEquals("Diego",funcinarios.getNome());
     }
+
 }
